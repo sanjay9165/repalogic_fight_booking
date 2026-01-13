@@ -1,7 +1,8 @@
 import 'package:repalogic_flight_booking/utilities/common_exports.dart';
 
 void main() async {
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -9,13 +10,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flight Booking',
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme().light,
-      initialRoute: Routes.splashScreen,
-      navigatorKey: NavigationService.navigatorKey,
-      onGenerateRoute: NavigationService.generateRoute,
+    return MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => FlightProvider())],
+      child: MaterialApp(
+        title: 'Flight Booking',
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme().light,
+        initialRoute: Routes.splashScreen,
+        navigatorKey: NavigationService.navigatorKey,
+        onGenerateRoute: NavigationService.generateRoute,
+      ),
     );
   }
 }

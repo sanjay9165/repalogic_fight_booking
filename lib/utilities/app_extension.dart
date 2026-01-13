@@ -30,6 +30,29 @@ extension BuildContextExtensions on BuildContext {
       MediaQuery.of(this).size.height * value;
 
   double getScreenWidth(double value) => MediaQuery.of(this).size.width * value;
+
+  Future<DateTime?> selectDate() async {
+    final DateTime? picked = await showDatePicker(
+      context: this,
+      initialDate: DateTime.now(),
+      firstDate: DateTime.now(),
+      lastDate: DateTime.now().add(const Duration(days: 365)),
+      builder: (context, child) {
+        return Theme(
+          data: Theme.of(context).copyWith(
+            colorScheme: ColorScheme.light(
+              primary: AppColors.primaryColor,
+              onPrimary: AppColors.white,
+              surface: AppColors.white,
+              onSurface: AppColors.black,
+            ),
+          ),
+          child: child!,
+        );
+      },
+    );
+    return picked;
+  }
 }
 
 extension FormValidation on String {
@@ -43,4 +66,10 @@ extension FormValidation on String {
   ).hasMatch(this);
 
   bool get isValidPhone => RegExp(r'(^(?:[+0]9)?[0-9]{10}$)').hasMatch(this);
+
+  int toInt() => int.parse(this);
+
+  num toNum() => num.parse(this);
+
+  double toDouble() => double.parse(this);
 }
