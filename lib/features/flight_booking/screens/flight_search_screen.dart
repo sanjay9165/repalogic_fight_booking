@@ -19,7 +19,7 @@ class _FlightSearchScreenState extends State<FlightSearchScreen> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final provider = context.read<FlightProvider>();
-      _popularCities.addAll(provider.controller.getPopularCities());
+      _popularCities.addAll(provider.getPopularCities());
     });
   }
 
@@ -46,7 +46,7 @@ class _FlightSearchScreenState extends State<FlightSearchScreen> {
       );
 
       if (!mounted) return;
-      context.read<FlightProvider>().controller.searchFlights(search).then((_) {
+      context.read<FlightProvider>().searchFlights(search).then((_) {
         if (!mounted) return;
         Navigator.pushNamed(context, Routes.flightListScreen);
       });

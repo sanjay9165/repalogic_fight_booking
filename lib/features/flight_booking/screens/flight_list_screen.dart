@@ -11,7 +11,7 @@ class FlightListScreen extends StatelessWidget {
         padding: EdgeInsetsGeometry.symmetric(horizontal: 20),
         child: Consumer<FlightProvider>(
           builder: (context, provider, child) {
-            final controller = provider.controller;
+            final controller = provider;
 
             if (controller.state == FlightState.loading) {
               return const Center(child: CircularProgressIndicator());

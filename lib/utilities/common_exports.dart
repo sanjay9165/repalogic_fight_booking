@@ -25,7 +25,6 @@ export 'package:repalogic_flight_booking/features/flight_booking/screens/flight_
 export 'package:repalogic_flight_booking/features/flight_booking/screens/widgtes/detail_row.dart';
 export 'package:repalogic_flight_booking/features/flight_booking/screens/widgtes/flight_card.dart';
 export 'package:repalogic_flight_booking/features/flight_booking/screens/widgtes/city_picker.dart';
-export 'package:repalogic_flight_booking/features/flight_booking/controller/flight_controller.dart';
 export 'package:repalogic_flight_booking/features/flight_booking/screens/flight_search_screen.dart';
 export 'package:repalogic_flight_booking/features/flight_booking/screens/flight_booking_screen.dart';
 export 'package:repalogic_flight_booking/features/flight_booking/screens/booking_success_screen.dart';

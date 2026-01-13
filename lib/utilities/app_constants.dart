@@ -1,12 +1,12 @@
 class AppConstants {
   // App Info
   static const String appName = 'Flight Booking';
-  
+
   // Date Formats
   static const String dateFormat = 'dd MMM yyyy';
   static const String timeFormat = 'hh:mm a';
   static const String dateTimeFormat = 'dd MMM yyyy, hh:mm a';
-  
+
   // Validation Messages
   static const String emptyOriginError = 'Please select origin';
   static const String emptyDestinationError = 'Please select destination';
@@ -14,8 +14,12 @@ class AppConstants {
   static const String invalidEmailError = 'Please enter a valid email';
   static const String invalidPhoneError = 'Please enter a valid phone number';
   static const String emptyNameError = 'Please enter passenger name';
-  static const String emptyPassengersError = 'Please select number of passengers';
-  
+  static const String emptyEmailError = 'Please enter passenger email';
+  static const String emptyPhoneError = 'Please enter passenger phone number';
+
+  static const String emptyPassengersError =
+      'Please select number of passengers';
+
   // Screen Titles
   static const String searchFlightsTitle = 'Search Flights';
   static const String availableFlightsTitle = 'Available Flights';

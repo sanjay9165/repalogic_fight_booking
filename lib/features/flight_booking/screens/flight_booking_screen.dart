@@ -26,7 +26,7 @@ class _FlightBookingScreenState extends State<FlightBookingScreen> {
 
   void _bookFlight() {
     if (_formKey.currentState!.validate()) {
-      context.read<FlightProvider>().controller.bookFlight(
+      context.read<FlightProvider>().bookFlight(
         flightId: widget.flight.id,
         passengerName: _nameController.text.trim(),
         passengerEmail: _emailController.text.trim(),
@@ -42,7 +42,7 @@ class _FlightBookingScreenState extends State<FlightBookingScreen> {
       appBar: AppBar(title: const Text(AppConstants.bookFlightTitle)),
       body: Consumer<FlightProvider>(
         builder: (context, provider, child) {
-          final controller = provider.controller;
+          final controller = provider;
 
           if (controller.bookingState == BookingState.success) {
             WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -90,7 +90,7 @@ class _FlightBookingScreenState extends State<FlightBookingScreen> {
                     keyboardType: TextInputType.emailAddress,
                     validator: (value) {
                       if (value == null || value.trim().isEmpty) {
-                        return AppConstants.emptyNameError;
+                        return AppConstants.emptyEmailError;
                       }
                       if (!value.emailValidation) {
                         return AppConstants.invalidEmailError;
@@ -106,7 +106,7 @@ class _FlightBookingScreenState extends State<FlightBookingScreen> {
                     keyboardType: TextInputType.phone,
                     validator: (value) {
                       if (value == null || value.trim().isEmpty) {
-                        return AppConstants.emptyNameError;
+                        return AppConstants.emptyPhoneError;
                       }
                       if (!value.isValidPhone) {
                         return AppConstants.invalidPhoneError;
