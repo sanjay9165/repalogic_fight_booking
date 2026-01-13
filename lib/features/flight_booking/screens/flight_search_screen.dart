@@ -124,7 +124,6 @@ class _FlightSearchScreenState extends State<FlightSearchScreen> {
               GestureDetector(
                 onTap: () async => await _selectDate(context),
                 child: Container(
-                  padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
                     color: AppColors.formBackground,
                     border: Border(
@@ -139,16 +138,23 @@ class _FlightSearchScreenState extends State<FlightSearchScreen> {
                         style: context.textTheme.labelLarge,
                       ),
                       const SizedBox(height: 6),
-                      Text(
-                        _selectedDate != null
-                            ? DateFormat(
-                                AppConstants.dateFormat,
-                              ).format(_selectedDate!)
-                            : 'Select date',
-                        style: context.textTheme.labelLarge?.copyWith(
-                          color: _selectedDate != null
-                              ? AppColors.black
-                              : AppColors.lightGray,
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          bottom: 16,
+                          top: 16,
+                          left: 16,
+                        ),
+                        child: Text(
+                          _selectedDate != null
+                              ? DateFormat(
+                                  AppConstants.dateFormat,
+                                ).format(_selectedDate!)
+                              : 'Select date',
+                          style: context.textTheme.labelLarge?.copyWith(
+                            color: _selectedDate != null
+                                ? AppColors.black
+                                : AppColors.lightGray,
+                          ),
                         ),
                       ),
                     ],
